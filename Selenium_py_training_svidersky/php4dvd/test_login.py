@@ -7,8 +7,8 @@ import unittest, time, re
 
 class Untitled(unittest.TestCase):
     def setUp(self):
-        self.driver = webdriver.Firefox()
-        self.driver.implicitly_wait(30)
+        self.driver = webdriver.Remote('http://127.0.0.1:4441/wd/hub', webdriver.DesiredCapabilities.FIREFOX)
+        self.driver.implicitly_wait(5)
         self.base_url = "http://localhost/php4dvd/"
         self.verificationErrors = []
         self.accept_next_alert = True
