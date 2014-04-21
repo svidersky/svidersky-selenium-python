@@ -15,3 +15,6 @@ class Page(object):
             return True
         except WebDriverException:
             return False
+
+    def go_to_main(self):
+        self.driver.get(self.base_url)

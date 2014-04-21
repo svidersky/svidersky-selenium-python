@@ -4,6 +4,6 @@ from model.user import User
 
 def test_add_film(app):
     app.ensure_login_as(User.Admin())
-    new_film = Film.random()
-    app.add_film(new_film)
+    fake_film = Film.fake_film()
+    app.add_film(fake_film)
     app.logout()

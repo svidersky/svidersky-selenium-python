@@ -9,3 +9,7 @@ class Film(object):
         from random import randint
         return cls(title="film" + str(randint(0, 1000000)),
                    year=randint(1895, 2020))
+
+    @classmethod
+    def fake_film(cls):
+        return cls(title="fake film", year="some year")
