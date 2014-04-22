@@ -12,4 +12,4 @@ class Film(object):
 
     @classmethod
     def fake_film(cls):
-        return cls(title="fake film", year="some year")
+        return cls(title="fake film", year="")

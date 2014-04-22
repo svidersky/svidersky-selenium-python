@@ -87,7 +87,10 @@ class Application(object):
         self.add_film_page.film_title_field.send_keys(film.title)
         self.add_film_page.film_year_field.send_keys(film.year)
         self.add_film_page.add_film_submit.click()
-        assert film.title in self.add_film_page.result_text
+        try:
+            assert film.title in self.add_film_page.result_text
+        except:
+            assert self.add_film_page.field_required_text in self.add_film_page.field_is_required
 
     def search_film(self, film):
         self.page.go_to_main()
