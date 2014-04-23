@@ -83,6 +83,7 @@ class Application(object):
         ump.user_form.submit_button.click()
 
     def add_film(self, film):
+        self.main_page.go_to_main()
         self.internal_page.add_film_button.click()
         self.add_film_page.film_title_field.send_keys(film.title)
         self.add_film_page.film_year_field.send_keys(film.year)
@@ -94,12 +95,17 @@ class Application(object):
 
     def search_film(self, film):
         self.page.go_to_main()
+        self.main_page.film_search_field.send_keys(Keys.COMMAND, "a")
+       # time.sleep(1)
+        self.main_page.film_search_field.send_keys(Keys.DELETE)
         self.main_page.film_search_field.send_keys(film.title)
         self.main_page.film_search_field.send_keys(Keys.RETURN)
         time.sleep(1)
         film_title_on_search_page = self.wait.until(presence_of_element_located((By.CSS_SELECTOR, "div.title")))
         assert film.title in film_title_on_search_page.text
 
-    def remove_film(self):
+    def remove_film(self, film):
+        self.search_film(film)
+        self.main_page.film_found.click()
         self.film_description_page.film_remove_button.click()
         self.wait.until(alert_is_present()).accept()
