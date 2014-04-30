@@ -1,14 +1,14 @@
-from php4dvd.model.user import User
+from model.user import User
 from selenium.webdriver.common.keys import Keys
-from php4dvd.model.film import Film
-from php4dvd.pages.page import Page
-from php4dvd.pages.internal_page import InternalPage
-from php4dvd.pages.login_page import LoginPage
-from php4dvd.pages.user_management_page import UserManagementPage
-from php4dvd.pages.add_film_page import AddFilmPage
-from php4dvd.pages.film_description_page import FilmDescriptionPage
-from php4dvd.pages.main_page import MainPage
-from php4dvd.pages.user_profile_page import UserProfilePage
+from model.film import Film
+from pages.page import Page
+from pages.internal_page import InternalPage
+from pages.login_page import LoginPage
+from pages.user_management_page import UserManagementPage
+from pages.add_film_page import AddFilmPage
+from pages.film_description_page import FilmDescriptionPage
+from pages.main_page import MainPage
+from pages.user_profile_page import UserProfilePage
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support.expected_conditions import *
@@ -95,7 +95,7 @@ class Application(object):
 
     def search_film(self, film):
         self.page.go_to_main()
-        self.main_page.film_search_field.send_keys(Keys.COMMAND, "a")
+        self.main_page.film_search_field.send_keys(Keys.CONTROL, "a")
        # time.sleep(1)
         self.main_page.film_search_field.send_keys(Keys.DELETE)
         self.main_page.film_search_field.send_keys(film.title)

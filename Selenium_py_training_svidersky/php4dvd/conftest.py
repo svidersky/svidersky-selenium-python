@@ -6,7 +6,7 @@ import pytest
 
 def pytest_addoption(parser):
     parser.addoption("--browser", action="store", default="firefox", help="browser type")
-    parser.addoption("--base_url", action="store", default="http://localhost/php4dvd/", help="base URL")
+    parser.addoption("--base_url", action="store", default="http://buymeapie.com", help="base URL")
 
 
 @pytest.fixture(scope="session")

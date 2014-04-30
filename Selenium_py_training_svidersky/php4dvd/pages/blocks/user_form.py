@@ -1,4 +1,4 @@
-from php4dvd.pages.page import Page
+from pages.page import Page
 from selenium.webdriver.support.select import Select
 
 
